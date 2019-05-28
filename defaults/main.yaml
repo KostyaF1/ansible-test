@@ -1,2 +1,6 @@
 ambra_gateway_download_url:      ambra
 ambra_gateway_install_directory: /mnt/c/Users/kostiantyn.moroz/Downloads/
+
+az_container_name: "{{ lookup('env','AZURE_STORAGE_CONTAINER_NAME') }}"
+az_account_key: "{{ lookup('env','ARM_ACCESS_KEY') }}"
+az_account_name: "{{ lookup('env','AZURE_STORAGE_ACCOUNT') }}"
