@@ -9,6 +9,6 @@
     arguments: /VERYSILENT /SUPPRESSMSGBOXES /DIR="{{ ambra_gateway_install_directory }}"
     product_id: auto
     state: present
-  when: ambra_gateway_installed is changed
+  #when: ambra_gateway_installed is changed
 
 
