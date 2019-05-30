@@ -1,12 +1,11 @@
-#- name: Download Abmra Soft from Blob
-#  shell: "az storage blob download --container-name {{ az_container_name }} --account-key {{ az_account_key }} --account-name {{ az_account_name }} 
-#  -f {{ambra_gateway_install_directory}}setup-{{ ambra_gateway_version }}.exe --name {{ambra_gateway_download_url}}/setup-{{ ambra_gateway_version }}.exe"
-#  changed_when: false
+- name: Download Abmra Soft from Blob
+  shell: "az storage blob download --container-name {{ az_container_name }} --account-key {{ az_account_key }} --account-name {{ az_account_name }} 
+  -f {{ambra_gateway_install_directory}}setup-{{ ambra_gateway_version }}.exe --name {{ambra_gateway_download_url}}/setup-{{ ambra_gateway_version }}.exe"
+  changed_when: false
 
 - name: Install Ambra Gateway
   win_package:
-    path: "az storage blob download --container-name {{ az_container_name }} --account-key {{ az_account_key }} --account-name {{ az_account_name }} 
-  -f {{ambra_gateway_install_directory}}setup-{{ ambra_gateway_version }}.exe --name {{ambra_gateway_download_url}}/setup-{{ ambra_gateway_version }}.exe"
+    path: "{{ ambra_gateway_install_directory }}/setup-{{ ambra_gateway_version }}.exe"
     arguments: /VERYSILENT /SUPPRESSMSGBOXES /DIR="{{ ambra_gateway_install_directory }}"
     product_id: auto
     state: present
